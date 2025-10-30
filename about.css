@@ -1,0 +1,56 @@
+.about-page {
+    margin: 80px auto;
+    text-align: center;
+}
+
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-image {
+    width: 50px;
+    height: auto;  
+    max-width: 50px;  
+    margin-top: 20px;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.team-member {
+    text-align: center;
+    max-width: 200px;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.team-member p {
+    color: #777;
+}
+.footer-col-4 {
+ border-top: 10px;   
+}

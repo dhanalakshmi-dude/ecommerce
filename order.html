@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Redstore</title>
+    <link rel="stylesheet" href="cart.css"> 
+    <title>Background Image Example</title>
+    <link rel="stylesheet" href="Home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src='https://www.noupe.com/embed/019a10a584a3703992a5cd0be4566e6a6734.js'></script>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo-Photoroom (1).png" width="125px" alt="Logo">
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+            <img src="images/menu1.png" width="30px" height="30" alt="Menu" onclick="menutoggle()">
+        </div>
+    </div>
+
+    <div class="small-container order-page">
+        <h1>Checkout</h1>
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="order-items">
+                
+            </div>
+            <div id="order-total">Total: $0.00</div>
+        </div>
+
+        <form id="order-form" class="order-form">
+            <h2>Shipping Information</h2>
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="text" id="city" placeholder="City" required>
+            <input type="text" id="zip" placeholder="ZIP Code" required>
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value="IND">India</option>
+                <option value="AB">Abroad</option>
+            </select>
+
+            <h2>Payment Information</h2>
+            <input type="text" id="card-number" placeholder="Card Number" required>
+            <input type="text" id="expiry" placeholder="MM/YY" required>
+            <input type="text" id="cvv" placeholder="CVV" required>
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/downloadandroid.svg" alt="Android">
+                        <img src="images/downloadapple.png" alt="iOS">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo2.png" alt="Logo">
+                    <p>Our purpose is to sustainably make the pleasure and benefits of sports accessible to many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2025 - Belongs to Oviya</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu function
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        // Products array (updated with your local image path for Purple Shirt)
+       const products = [
+    { id: 1, name: "Classic Purple Hat", price: 350, rating: 4.5, description:"claasic blue mobile case." , image: "images/case1.jpeg" },
+    { id: 2, name: "Purple Shirt", price: 550, rating: 4.2, description: "Comfortable cotton purple shirt.", image: "images/case1.jpeg" },
+    { id: 3, name: "Purple Shoes", price: 990, rating: 4.8, description: "Premium purple casual shoes.", image: "images/case2.jpeg" },
+    { id: 4, name: "Purple Bag", price: 699, rating: 4.0, description: "Elegant purple bag for daily use.", image: "images/case3.jpg" },
+    { id: 5, name: "Purple Watch", price: 1500, rating: 4.3, description: "Luxury purple watch with leather strap.", image: "images/case4.jpeg" },
+    { id: 6, name: "Purple Glasses", price: 299, rating: 4.1, description: "Trendy purple glasses for style.", image: "images/charm1.jpeg" },
+    { id: 7, name: "Purple Scarf", price: 299, rating: 4.6, description: "Soft and stylish purple scarf.", image: "images/charm2.jpg" },
+    { id: 8, name: "Purple Headphones", price: 1200, rating: 4.7, description: "Noise cancelling purple headphones.", image: "images/charm3.jpg" },
+    { id: 9, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" },
+    { id: 10, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" },
+    { id: 11, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" },
+    { id: 12, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" }
+    
+];
+
+
+        // Load cart from localStorage
+        function loadCart() {
+            const data = localStorage.getItem('cart');
+            return data ? JSON.parse(data) : [];
+        }
+        // In order.html, before localStorage.removeItem('cart');
+localStorage.setItem('lastOrder', JSON.stringify(cart));  // Save last order
+localStorage.removeItem('cart');  // Clear cart
+window.location.href = 'summary.html';
+
+        // Render order summary
+        function renderOrderSummary() {
+            const cart = loadCart();
+            const orderItemsDiv = document.getElementById('order-items');
+            orderItemsDiv.innerHTML = '';
+            if (cart.length === 0) {
+                alert('Your cart is empty. Redirecting to cart.');
+                window.location.href = 'cart.html';
+                return;
+            }
+
+            const counted = {};
+            cart.forEach(item => {
+                counted[item.id] = (counted[item.id] || 0) + 1;
+            });
+
+            let total = 0;
+            for (const prodId in counted) {
+                const product = cart.find(p => p.id == prodId);
+                const qty = counted[prodId];
+                const subtotal = product.price * qty;
+                total += subtotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'order-item';
+                itemDiv.innerHTML = `
+                    <p>${product.name} x ${qty} - $${subtotal.toFixed(2)}</p>
+                `;
+                orderItemsDiv.appendChild(itemDiv);
+            }
+
+            document.getElementById('order-total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Handle form submission
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Basic validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            const country = document.getElementById('country').value;
+            const cardNumber = document.getElementById('card-number').value;
+            const expiry = document.getElementById('expiry').value;
+            const cvv = document.getElementById('cvv').value;
+
+            if (!name || !email || !address || !city || !zip || !country || !cardNumber || !expiry || !cvv) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Simulate order placement
+            alert('Order placed successfully! Thank you for shopping.');
+            localStorage.removeItem('cart'); // Clear cart
+            window.location.href = 'products.html'; // Redirect to products
+        });
+
+        window.onload = renderOrderSummary;
+    </script>
+</body>
+</html>

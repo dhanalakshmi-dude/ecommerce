@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Redstore</title>
+    <link rel="stylesheet" href="Home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <script src='https://www.noupe.com/embed/019a10a584a3703992a5cd0be4566e6a6734.js'></script>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo-Photoroom (1).png" width="125px" alt="Logo">
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+            <img src="images/menu1.png" width="30px" height="30" alt="Menu" onclick="menutoggle()">
+        </div>
+    </div>
+
+    <div class="small-container about-page">
+        <center>
+        <h1>About Us</h1>
+        <div class="about-section">
+            <h2>Who We Are</h2>
+            <p>Welcome to Redstore, your go-to destination for stylish and affordable products. Founded in 2020, we specialize in high-quality fashion items, accessories, and more, designed to make everyday life more vibrant and enjoyable.</p>
+        </div>
+        </center>
+
+        <div class="about-section">
+            <br>
+             <center>
+            <h2>Our Mission</h2>
+            <p>Our purpose is to sustainably make the pleasure and benefits of sports and fashion accessible to many. We believe in quality, affordability, and customer satisfaction, offering a wide range of products that cater to all ages and styles.</p>
+        </div>
+        </center>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3 style="color: black;">Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/downloadandroid.svg" alt="Android">
+                        <img src="images/downloadapple.png" alt="iOS">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-Photoroom (1).png" alt="Logo">
+                    <p>Our purpose is to sustainably make the pleasure and benefits of sports accessible to many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3 style="color: black;">Useful Links</h3>
+                    <ul style="color: grey;">
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3 style="color: black;">Follow Us</h3>
+                                            <a href="#"><i class="ri-facebook-line"></i></a></li>
+                        <a href="#"><i class="ri-instagram-fill"></i> </a>
+                        <a href="#"><i class="ri-youtube-fill"></i> </a>
+                        <a href="#"><i class="ri-tiktok-fill"></i> </a>
+                        <a href="#"><i class="ri-snapchat-fill"> </i></a>
+                        <a href="#"><i class="ri-pinterest-fill"> </i></a>
+                        <a href="#"><i class="ri-whatsapp-fill"> </i></a>
+                    
+                </div>
+            </div>
+            <hr>
+            <center>
+            <p class="copyright">Copyright 2025 - Belongs to Oviya</p>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+</body>
+</html>

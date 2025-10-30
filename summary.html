@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary - Redstore</title>
+    <link rel="stylesheet" href="cart.css"> <!-- Reuse cart.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo2.png" width="125px" alt="Logo">
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+            <img src="images/menu1.png" width="30px" height="30" alt="Menu" onclick="menutoggle()">
+        </div>
+    </div>
+
+    <div class="small-container summary-page">
+        <h1>Order Confirmation</h1>
+        <p>Thank you for your order! Here is your order summary:</p>
+        <div id="summary-items">
+            <!-- Order items will be dynamically inserted here -->
+        </div>
+        <div id="summary-total">Total: $0.00</div>
+        <button class="btn" onclick="window.location.href='products.html'">Continue Shopping</button>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/downloadandroid.svg" alt="Android">
+                        <img src="images/downloadapple.png" alt="iOS">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-Photoroom (1).png" alt="Logo">
+                    <p>Our purpose is to sustainably make the pleasure and benefits of sports accessible to many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2025 - Belongs to Oviya</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu function
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        // Products array (for reference)
+         const products = [
+    { id: 1, name: "Classic Purple Hat", price: 350, rating: 4.5, description:"claasic blue mobile case." , image: "images/case1.jpeg" },
+    { id: 2, name: "Purple Shirt", price: 550, rating: 4.2, description: "Comfortable cotton purple shirt.", image: "images/case1.jpeg" },
+    { id: 3, name: "Purple Shoes", price: 990, rating: 4.8, description: "Premium purple casual shoes.", image: "images/case2.jpeg" },
+    { id: 4, name: "Purple Bag", price: 699, rating: 4.0, description: "Elegant purple bag for daily use.", image: "images/case3.jpg" },
+    { id: 5, name: "Purple Watch", price: 1500, rating: 4.3, description: "Luxury purple watch with leather strap.", image: "images/case4.jpeg" },
+    { id: 6, name: "Purple Glasses", price: 299, rating: 4.1, description: "Trendy purple glasses for style.", image: "images/charm1.jpeg" },
+    { id: 7, name: "Purple Scarf", price: 299, rating: 4.6, description: "Soft and stylish purple scarf.", image: "images/charm2.jpg" },
+    { id: 8, name: "Purple Headphones", price: 1200, rating: 4.7, description: "Noise cancelling purple headphones.", image: "images/charm3.jpg" },
+    { id: 9, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" },
+    { id: 10, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" },
+    { id: 11, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" },
+    { id: 12, name: "Purple Jacket", price: 2000, rating: 4.4, description: "Warm and trendy purple jacket.", image: "images/charm5.jpg" }
+    
+];
+
+
+
+        // Render order summary from lastOrder
+        function renderSummary() {
+            const lastOrder = localStorage.getItem('lastOrder');
+            if (!lastOrder) {
+                document.getElementById('summary-items').innerHTML = '<p>No order found. Please place an order first.</p>';
+                return;
+            }
+            const cart = JSON.parse(lastOrder);
+            const summaryItemsDiv = document.getElementById('summary-items');
+            summaryItemsDiv.innerHTML = '';
+
+            const counted = {};
+            cart.forEach(item => {
+                counted[item.id] = (counted[item.id] || 0) + 1;
+            });
+
+            let total = 0;
+            for (const prodId in counted) {
+                const product = cart.find(p => p.id == prodId);
+                const qty = counted[prodId];
+                const subtotal = product.price * qty;
+                total += subtotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'summary-item';
+                itemDiv.innerHTML = `
+                    <p>${product.name} x ${qty} - $${subtotal.toFixed(2)}</p>
+                `;
+                summaryItemsDiv.appendChild(itemDiv);
+            }
+
+            document.getElementById('summary-total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        window.onload = renderSummary;
+    </script>
+</body>
+</html>

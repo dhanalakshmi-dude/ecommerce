@@ -1,0 +1,30 @@
+/* Add to cart.css or create order.css */
+.order-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.order-summary, .order-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.order-form input, .order-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.order-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#order-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}

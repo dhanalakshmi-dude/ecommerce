@@ -1,0 +1,111 @@
+body {
+     background-image: url('images/back.webp');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 50px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.navbar .logo img {
+    cursor: pointer;
+}
+nav {
+    flex: 1;
+    text-align: right;
+}
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+nav ul li a:hover {
+    color:hsl(327, 96%, 50%);
+}
+
+/* Account Page */
+
+.account-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+.form-container {
+    background: #fff;
+    padding: 40px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.form-btn {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.form-btn span {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    color: #555;
+}
+.form-btn span:hover {
+    color: hsl(327, 96%, 50%);
+}
+.form-container form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.btn {
+    display: inline-block;
+    background: hsl(327, 96%, 50%);
+    color: #fff;
+    padding: 12px 25px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+.btn:hover {
+    background: hsl(327, 96%, 50%);
+}
+.form-container p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+.form-container p a {
+    color: hsl(327, 96%, 50%);
+    text-decoration: none;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: #fff;
+    margin-top: 30px;
+}

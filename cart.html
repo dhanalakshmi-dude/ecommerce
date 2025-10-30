@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Background Image Example</title>
+    <link rel="stylesheet" href="Home.css">
+    <title>Your Cart - Redstore</title>
+    <link rel="stylesheet" href="cart.css"> 
+    <title>Background Image Example</title>
+    <link rel="stylesheet" href="Home.css"><!-- Link to external CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src='https://www.noupe.com/embed/019a10a584a3703992a5cd0be4566e6a6734.js'></script>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo-Photoroom (1).png" width="125px" alt="Logo">
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+            <img src="images/menu1.png" width="30px" height="30" alt="Menu" onclick="menutoggle()">
+        </div>
+    </div>
+
+    <div class="small-container cart-page">
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="total-price">
+            <div id="total">Total: $0.00</div>
+            <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/downloadandroid.svg" alt="Android">
+                        <img src="images/downloadapple.png" alt="iOS">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-Photoroom (1).png" alt="Logo">
+                    <p>Our purpose is to sustainably make the pleasure and benefits of sports accessible to many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2025 - Belongs to Oviya</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu function (from your original code)
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        // Cart functions
+        function loadCart() {
+            const data = localStorage.getItem('cart');
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            const cart = loadCart();
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = '';
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+                document.getElementById('total').textContent = 'Total: $0.00';
+                document.getElementById('checkout-btn').disabled = true;
+                return;
+            }
+
+            // Count quantities
+            const counted = {};
+            cart.forEach(item => {
+                counted[item.id] = (counted[item.id] || 0) + 1;
+            });
+
+            let total = 0;
+            for (const prodId in counted) {
+                const product = cart.find(p => p.id == prodId);
+                const qty = counted[prodId];
+                const subtotal = product.price * qty;
+                total += subtotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${product.image}" alt="${product.name}" width="100">
+                    </div>
+                    <div class="cart-item-details">
+                        <h4>${product.name}</h4>
+                        <p>Price: $${product.price.toFixed(2)}</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${prodId}, -1)">-</button>
+                            <span>Qty: ${qty}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${prodId}, 1)">+</button>
+                        </div>
+                        <p>Subtotal: $${subtotal.toFixed(2)}</p>
+                        <button class="remove-btn" onclick="removeItem(${prodId})">Remove</button>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+            }
+
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+            document.getElementById('checkout-btn').disabled = false;
+        }
+
+        function changeQuantity(prodId, delta) {
+            let cart = loadCart();
+            const index = cart.findIndex(p => p.id == prodId);
+            if (index !== -1) {
+                if (delta > 0) {
+                    cart.push(cart[index]); // Add another instance
+                } else if (delta < 0 && cart.filter(p => p.id == prodId).length > 1) {
+                    cart.splice(index, 1); // Remove one instance
+                }
+                saveCart(cart);
+                renderCart();
+            }
+        }
+
+        function removeItem(prodId) {
+            let cart = loadCart();
+            cart = cart.filter(p => p.id != prodId);
+            saveCart(cart);
+            renderCart();
+        }
+
+        document.getElementById('checkout-btn').onclick = () => {
+            window.location.href = 'order.html'; // Redirect to order page
+        };
+
+        window.onload = renderCart;
+    </script>
+</body>
+</html>

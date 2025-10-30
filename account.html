@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Background Image Example</title>
+    <link rel="stylesheet" href="Home.css">
+    <title>Account - Redstore</title>
+    <link rel="stylesheet" href="account.css">
+    <script>
+        function showForm(formName) {
+            document.getElementById("loginForm").style.display = (formName === 'login') ? 'block' : 'none';
+            document.getElementById("registerForm").style.display = (formName === 'register') ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <script src='https://www.noupe.com/embed/019a10a584a3703992a5cd0be4566e6a6734.js'></script>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/logo-Photoroom (1).png" width="125px">
+        </div>
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Account Section -->
+     <center>
+    <div class="account-page">
+        <div class="form-container">
+            <div class="form-btn">
+                <span onclick="showForm('login')">Login</span>
+                <span onclick="showForm('register')">Register</span>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" action="LoginServlet" method="post">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <label>
+                    <input type="checkbox" name="remember"> Remember Me
+                </label>
+                <button type="submit" class="btn">Login</button>
+                <p><a href="#">Forgot Password?</a></p>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" action="RegisterServlet" method="post" style="display: none;">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit" class="btn">Register</button>
+                <p>Already have an account? <a href="#" onclick="showForm('login')">Login</a></p>
+            </form>
+        </div>
+    </div>
+</center>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p class="Copyright">Copyright 2025 - Belongs to Oviya</p>
+        </div>
+    </div>
+
+</body>
+</html>

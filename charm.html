@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All products - Redstore</title>
+        <link rel="stylesheet" href="Home.css">
+        <title>Background Image Example</title>
+    <link rel="stylesheet" href="Home.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    </head>
+    <body>
+        <script src='https://www.noupe.com/embed/019a10a584a3703992a5cd0be4566e6a6734.js'></script>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo-Photoroom (1).png" width="125px">
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </nav>
+                <img src="images/menu1.png" width="30px" height="30">
+                <img src="images/bag1.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+        </div>
+
+        <div class="small-container">
+            <div class="row row-2">
+                <h2>All Products</h2>
+                <select>
+                    <option>Default Sorting</option>
+                    <option>Sort by price</option>
+                    <option>Sort by popularity</option>
+                    <option>Sort by rating</option>
+                    <option>Sort by price</option>
+                </select>
+            </div>
+            <div class="row" id="products-container">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+
+            <div class="page-btn">
+                <span><a href="products.html">1</a></span>
+                <span><a href="Comboproducts.html">2</a></span>
+                <span><a href="charm.html">3</a></span>
+                <span><a href="Allproducts.html" title="Next">&#8594;</a></span>
+            </div>
+        </div>
+
+        <!-----------footer----------->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <br>
+                        <h3 style="color: grey;">Download Our App</h3>
+                        <p>Download App for Android and ios mobile phone.</p>
+                        <div class="app-logo">
+                            <img src="images/downloadandroid.svg">
+                            <br>
+                            <img src="images/downloadapple.png">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="images/logo-Photoroom (1).png">
+                        <p>Our purpose is to Sustainably make the pleasure and Benefits of sports accessible to many.</p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3 style="color: grey;">Useful Links</h3>
+                        <ul style="color: grey;">
+                            <li>Coupons</li>
+                            <li>Blog post</li>
+                            <li>Return Policy</li>
+                            <li>Join Affiliate</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3 style="color: grey;">Follow us</h3>
+                        <ul style="color: grey;">
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>YouTube</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p class="Copyright"> Copyright 2025 - Belongs to Oviya</p>
+            </div>
+        </div>
+
+        <!----------js for toggle menu----------->
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+            MenuItems.style.maxHeight = "0px";
+            function menutoggle() {
+                if (MenuItems.style.maxHeight == "0px") {
+                    MenuItems.style.maxHeight = "200px";
+                } else {
+                    MenuItems.style.maxHeight = "0px";
+                }
+            }
+        </script>
+
+        <!-- Products example data -->
+        <script>
+            // Products example data
+            const products = [
+    { id: 1, name: "Blue jellfish charm", price: 50, rating: 4.5, description:"classic charm in jellyfish design." , image: "images/charm1.jpeg" },
+    { id: 2, name: "Red jellfish charm", price: 50, rating: 4.2, description: "classic charm in jellyfish design.", image: "images/charm2.jpg" },
+    { id: 3, name: "Pink jellfish charm", price: 50, rating: 4.8, description: "classic charm in jellyfish design.", image: "images/charm4.jpg" },
+    { id: 4, name: "lavender jellfish charm", price: 50, rating: 4.0, description: "classic charm in jellyfish design.", image: "images/charm5.jpg" },
+    { id: 5, name: "Ghost charm", price: 30, rating: 4.3, description: "Cute ghost charm.", image: "images/charm6.webp" },
+    { id: 6, name: "Trendy charm", price: 30, rating: 4.1, description: "Trendy charm.", image: "images/charm7.jpg" },
+    { id: 7, name: "Leaf charm", price: 30, rating: 4.6, description: "Cute leaf charm.", image: "images/charm8.jpeg" },
+    { id: 8, name: "Star charm", price: 40, rating: 4.7, description: "Cute sparkle star charm.", image: "images/charm14.jpg" },
+    { id: 9, name: "Flower charm", price: 40, rating: 4.4, description: "Cute flower charm.", image: "images/charm10.webp" },
+    { id: 10, name: "Heart charm", price: 40, rating: 4.4, description: "Small heart charm.", image: "images/charm11.webp" },
+    { id: 11, name: "glove charm", price: 40, rating: 4.4, description: "small cute glove protector.", image: "images/charm12.webp" },
+    { id: 12, name: "Piggy charm", price: 40, rating: 4.4, description: "small cute piggy protector.", image: "images/charm13.jpeg" }
+    
+];
+
+
+            // Function to load cart from localStorage
+            function loadCart() {
+                const data = localStorage.getItem('cart');
+                return data ? JSON.parse(data) : [];
+            }
+
+            // Function to save cart to localStorage
+            function saveCart(cart) {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            // Function to render stars based on rating
+            function renderStars(rating) {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += i < Math.floor(rating) ? '<span class="star-icon">★</span>' : '<span class="star-icon" style="color: #ddd;">★</span>';
+                }
+                return stars;
+            }
+
+            // Function to render products
+            function renderProducts() {
+                const container = document.getElementById('products-container');
+                container.innerHTML = '';
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'col-4';
+                    productDiv.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <h4>${product.name}</h4>
+                        <div class="rating">
+                            ${renderStars(product.rating)}
+                        </div>
+                        <p>$${product.price.toFixed(2)}</p>
+                        <div class="button-container">
+                            <button class="btn buy-now-btn" onclick="buyNow(${product.id})">Buy Now</button>
+                            <button class="btn add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+                        </div>
+                    `;
+                    container.appendChild(productDiv);
+                });
+            }
+
+            // Function to add to cart
+            function addToCart(productId) {
+                const product = products.find(p => p.id === productId);
+                let cart = loadCart();
+                cart.push(product);
+                saveCart(cart);
+                alert('Item added to cart!');
+                // Redirect to cart page after adding
+                window.location.href = 'cart.html';
+            }
+
+            // Function to buy now (placeholder)
+            function buyNow(productId) {
+                const product = products.find(p => p.id === productId);
+                // Redirect to PayPal or similar
+                window.location.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=your-email@example.com&item_name=${encodeURIComponent(product.name)}&amount=${product.price}`;
+            }
+
+            // Render products on page load
+            document.addEventListener('DOMContentLoaded', renderProducts);
+        </script>
+    </body>
+</html>
